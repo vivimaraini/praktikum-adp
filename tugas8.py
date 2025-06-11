@@ -2,12 +2,19 @@ import os
 import time
 from termcolor import cprint
 
+# Bersihkan layar sebelum animasi dimulai
 os.system('cls')
 
-def animasi_bendera():
-    lebar = 25  
-    pola_gelombang = [0, 1, 2, 3, 2, 1]  # Pola gelombang lebih dinamis
-    tinggi_bendera = 3  
+def animasi_bendera(lebar=25, tinggi_bendera=3, delay=0.15):
+    """
+    Animasi bendera berkibar dengan efek gelombang.
+    
+    Args:
+    - lebar (int): Lebar bendera.
+    - tinggi_bendera (int): Jumlah baris setiap warna bendera.
+    - delay (float): Kecepatan animasi dalam detik.
+    """
+    pola_gelombang = [0, 1, 2, 3, 2, 1]  
 
     while True:
         for gerakan in range(len(pola_gelombang)):
@@ -29,6 +36,7 @@ def animasi_bendera():
             for _ in range(8):
                 cprint("│", 'white', 'on_black', end='')
 
-            time.sleep(0.15)  # Memberikan efek berkibar lebih alami
+            time.sleep(delay)  
 
+# Jalankan animasi
 animasi_bendera()
